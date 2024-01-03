@@ -7,11 +7,11 @@
 [ -n "${_OBS_WORKSPACE_FF_SH:-}" ] && return || _OBS_WORKSPACE_FF_SH=1
 
 # Define the library directory
-lib_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+_osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Dependencies
-. "$lib_dir/obs.vaults.sh"
-. "$lib_dir/obs.ws.sh"
+. "$_osl_dir/obs.vaults.sh"
+. "$_osl_dir/obs.ws.sh"
 
 # Default values
 # ff means "folder-file"

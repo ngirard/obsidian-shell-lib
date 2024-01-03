@@ -4,10 +4,10 @@
 [ -n "${_OBS_VAULTS_SH:-}" ] && return || _OBS_VAULTS_SH=1
 
 # Define the library directory
-lib_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+_osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Dependencies
-. "$lib_dir/obs.core.sh"
+. "$_osl_dir/obs.core.sh"
 
 
 : <<'———'

@@ -4,13 +4,13 @@
 [ -n "${_OBS_TABS_FILE_SH:-}" ] && return || _OBS_TABS_FILE_SH=1
 
 # Define the library directory
-lib_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+_osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Dependencies
-. "$lib_dir/obs.core.sh"
-. "$lib_dir/obs.vaults.sh"
-. "$lib_dir/obs.ws.sh"
-. "$lib_dir/obs.workspace-ff.sh"
+. "$_osl_dir/obs.core.sh"
+. "$_osl_dir/obs.vaults.sh"
+. "$_osl_dir/obs.ws.sh"
+. "$_osl_dir/obs.workspace-ff.sh"
 
 # Default values
 # ff means "folder-file"

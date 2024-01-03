@@ -6,7 +6,7 @@
 [ -n "${_OBS_FF_SH:-}" ] && return || _OBS_FF_SH=1
 
 # Define the library directory
-# lib_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+# _osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Dependencies
 # None for now
