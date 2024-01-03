@@ -1,0 +1,38 @@
+name: obsidian-shell-lib
+arch: amd64
+platform: linux
+section: default
+priority: extra
+maintainer:  Nicolas Girard <girard.nicolas@gmail.com>
+description: Utility shell library for Obsidian
+vendor: "Nicolas Girard"
+homepage: "https://github.com/ngirard/obsidian-shell-lib"
+license: MIT
+disable_globbing: false
+
+# Version
+version: 0.3.0
+version_schema: semver
+epoch: 2
+
+
+# Dependencies.
+depends:
+  - curl
+  - grep
+
+# Contents to add to the package
+contents:
+  - src: /usr/local/lib/obsidian-shell-lib/obs.sh
+    dst: /usr/local/bin/obs.sh
+    type: symlink
+
+  - src: lib/*
+    dst: /usr/local/lib/obsidian-shell-lib
+
+# Umask to be used on files without explicit mode set.
+umask: 0o002
+
+# Custom configuration applied only to the Deb packager.
+deb:
+  compression: gzip
