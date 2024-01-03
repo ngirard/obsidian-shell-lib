@@ -11,10 +11,8 @@ license: MIT
 disable_globbing: false
 
 # Version
-version: 0.3.0
+version: ${VERSION}
 version_schema: semver
-epoch: 2
-
 
 # Dependencies.
 depends:
