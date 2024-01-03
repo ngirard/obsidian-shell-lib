@@ -3,8 +3,10 @@
 
 # Entry point for the "obs" library
 
-# Define the library directory
-_osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+if [ -z "${_osl_dir}" ]; then
+    # Define the library directory if not defined
+    _osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+fi
 
 # Source the library
 . "$_osl_dir/obs.core.sh"

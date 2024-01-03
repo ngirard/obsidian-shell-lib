@@ -5,8 +5,10 @@
 # Prevent from being sourced more than once
 [ -n "${_OBS_FF_SH:-}" ] && return || _OBS_FF_SH=1
 
-# Define the library directory
-# _osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+if [ -z "${_osl_dir}" ]; then
+    # Define the library directory if not defined
+    _osl_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+fi
 
 # Dependencies
 # None for now
