@@ -1,0 +1,46 @@
+name: Build and Release DEB Package
+
+on:
+  push:
+    branches:
+      - main  # or the branch of your choice
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up NFPM
+        run: |
+          curl -sfL https://install.goreleaser.com/github.com/goreleaser/nfpm.sh | sh
+          export PATH=$PATH:$PWD/bin
+
+      - name: Build DEB Package
+        run: |
+          VERSION=$(cat VERSION)
+          nfpm pkg --packager deb
+          mv "obsidian-shell-lib_${VERSION}_amd64.deb" "obsidian-shell-lib.deb"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload DEB Package to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./obsidian-shell-lib.deb
+          asset_name: obsidian-shell-lib.deb
+          asset_content_type: application/vnd.debian.binary-package
