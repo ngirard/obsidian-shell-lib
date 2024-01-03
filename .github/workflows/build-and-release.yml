@@ -17,6 +17,7 @@ jobs:
         uses: burningalchemist/nfpm-action@v1
         id: deb-package
         with:
+          nfpm_version: "2.35.1"
           config: "nfpm.yaml"  # Replace with your nfpm configuration file
           packager: "deb"
 
@@ -24,6 +25,7 @@ jobs:
         uses: burningalchemist/nfpm-action@v1
         id: rpm-package
         with:
+          nfpm_version: "2.35.1"
           config: "nfpm.yaml"  # Replace with your nfpm configuration file
           packager: "rpm"
 
