@@ -2,8 +2,8 @@ name: Build and Release Packages
 
 on:
   push:
-    branches:
-      - main  # Adjust this to your preferred branch
+    tags:
+      - '*'  # Trigger the workflow on push of any tag
 
 jobs:
   build-and-release:
