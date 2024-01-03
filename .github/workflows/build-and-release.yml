@@ -14,14 +14,14 @@ jobs:
         uses: actions/checkout@main
 
       - name: Create DEB Package
-        uses: burningalchemist/nfpm-action@main
+        uses: burningalchemist/nfpm-action@v1
         id: deb-package
         with:
           config: "nfpm.yaml"  # Replace with your nfpm configuration file
           packager: "deb"
 
       - name: Create RPM Package
-        uses: burningalchemist/nfpm-action@main
+        uses: burningalchemist/nfpm-action@v1
         id: rpm-package
         with:
           config: "nfpm.yaml"  # Replace with your nfpm configuration file
